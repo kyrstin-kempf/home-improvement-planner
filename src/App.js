@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button, makeStyles } from '@material-ui/core';
+import Icon from '@material-ui/core/Icon';
 
-function App() {
+const useStyles = makeStyles({
+  button: {
+    background: '#88D498',
+  }
+})
+
+const App = () => {
+  const classes = useStyles();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello</h1>
+      <Button 
+      variant="outlined" 
+      backgroundColor="#FDCA40"
+      startIcon={<Icon>add</Icon>}
+      className={ classes.button }>
+        New Project
+      </Button>
     </div>
   );
 }
