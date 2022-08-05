@@ -11,7 +11,6 @@ const App = () => {
   const classes = useStyles();
   return (
     <div className="App">
-      <h1>Hello</h1>
       <Button 
       variant="outlined" 
       backgroundColor="#FDCA40"
@@ -19,6 +18,13 @@ const App = () => {
       className={ classes.button }>
         New Project
       </Button>
+      <form>
+        <div>
+          <label htmlFor='title'>Title</label>
+          <input type="text" id='title'/>
+        </div>
+        <input type="submit" value="create project" />
+      </form>
     </div>
   );
 }
