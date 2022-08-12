@@ -2,17 +2,32 @@ import React from "react";
 import { Link } from "react-router-dom"
 
 function ProjectTile({ project }) {
-  
+
+    const a = project.priority
+    let result
+    if (a === 'high') {
+        result = '!!!'
+    } else if (a === 'medium') {
+        result = '!!'
+    } else if (a === 'low') {
+        result = '!'
+    } else {
+        result = ''
+    }
+
+    // console.log(result)
+
     return (
         <div className="tile-container">
+            <Link to={`/projects/${project.id}`}>
             <div className="tile" key={project.id}> 
                 <div className="tile-body">
-                    <hr className="line"></hr>
+                    {result}
                     <h2>{project.name}</h2>
-                    {/* <button className="circ" onClick={handleClick}>{starred}</button> */}
-                    <Link to={`/projects/${project.id}`}><button className="expand" id={project.id}>+</button></Link>
+                    {project.priority}
                 </div>
             </div>
+           </Link>
         </div>
     )
 }

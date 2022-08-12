@@ -24,19 +24,20 @@ h1 {
 /* ----------------------- NAV BAR */
 .nav-menu {
   background-color: #e5fef4;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 58px;
+  padding-right: 58px;
   text-align: left;
 }
 
 .nav-menu a {
   display: inline-block;
   padding: 8px;
-  margin: 15px 28px 15px 28px;
+  margin-bottom: 15px;
+  margin-top: 10px;
   color: inherit;
   text-decoration: none;
-  font-size: 20px;
-  width: 130px;
+  font-size: 18px;
+  width: 120px;
   text-align: center;
   border-bottom: 2px solid #e5fef4;
 }
@@ -50,10 +51,6 @@ a[aria-current="page"] {
   border-bottom: 2px solid #68d2a6;
   border-radius: 2px;
   color: #68d2a6;
-}
-
-.nav-menu a.add-project {
-  float: right;
 }
 
 .web-title {
@@ -94,14 +91,13 @@ a[aria-current="page"] {
 form {
   /* border: solid 2px #282c34; */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: 30px;
+  padding: 15px 30px;
   width: 60%;
   width: 400px;
   margin: 0 auto;
 }
 
 input {
-  /* border: 1px solid #858585; */
   border: 1px solid rgba(0, 0, 0, 0.16);
   border-radius: 1px;
   padding: 5px;
@@ -129,17 +125,17 @@ input:hover {
 }
 
 .col-25 {
-  float: left;
-  width: 25%;
+  /* float: left; */
+  /* width: 25%; */
   margin-top: 6px;
   vertical-align: center;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
+  /* float: left; */
+  /* width: 75%; */
+  margin-top: 15px;
 }
 
 .row:after {
@@ -224,9 +220,13 @@ input[type='radio'] {
 }
 
 /* ------------------ PROJECT TILE */
+.tiles-container {
+  text-align: center;
+}
 
 .tile-container {
   display: inline-block;
+  justify-content: center;
 }
 
 .tile-container-two {
@@ -238,8 +238,8 @@ input[type='radio'] {
 .tile {
   display: inline-block;
   width: 260px;
-  height: 335px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 10px;
   margin: 10px;
   border-radius: 2px;
   z-index: -1;
@@ -249,26 +249,20 @@ input[type='radio'] {
   display: inline-block;
   width: 260px;
   height: 335px;
-  background-color: #EBF5EE;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin: 10px;
-  border: 1px solid #f1f1f1;
   border-radius: 2px;
   z-index: -1;
+  vertical-align: mid;
 }
 
 .tile h2 {
-  font-size: 18px;
-}
-
-.line {
-  width: 75%;
-  border: .5px solid rgb(226, 225, 225);
+  font-size: 16px;
+  color: #5cbc94;
 }
 
 .tile-body {
   text-align: center;
-  position: relative;
-  z-index: 1;
 }
 
 .tile-info {
@@ -282,6 +276,10 @@ input[type='radio'] {
   font-size: 16px;
   padding-top: 20px;
   margin-bottom: -8px;
+}
+
+.priority-high {
+  color: red;
 }
 
 /* ------------------------------- */
