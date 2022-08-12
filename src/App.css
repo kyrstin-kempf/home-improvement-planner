@@ -1,10 +1,221 @@
+html * {
+  font-family: Helvetica;
+  font-size: 15px;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.body {
+  padding: 58px;
+}
+
+h1 {
+  padding: 10px 0 10px 0;
+  font-size: 18px;
+  text-align: center;
+}
+/* ----------------------- NAV BAR */
+.nav-menu {
+  background-color: #e5fef4;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: left;
+}
+
+.nav-menu a {
+  display: inline-block;
+  padding: 8px;
+  margin: 15px 28px 15px 28px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 20px;
+  width: 130px;
+  text-align: center;
+  border-bottom: 2px solid #e5fef4;
+}
+
+a[aria-current="page"] {
+  border-bottom: 2px solid #68d2a6;
+  color: #68d2a6;
+}
+
+.nav-menu a:hover {
+  border-bottom: 2px solid #68d2a6;
+  border-radius: 2px;
+  color: #68d2a6;
+}
+
+.nav-menu a.add-project {
+  float: right;
+}
+
+.web-title {
+  font-size: 22px;
+  width: 400px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: -11px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+/* ------------------------------- */
+.new-project-button {
+  background-color: #68d2a6;
+  border: none;
+  padding: 8px 20px;
+  font-size: 15px;
+  border-radius: 2px;
+  margin: 30px auto 10px auto;
+  width: 40%;
+}
+
+.new-project-button:hover {
+  background-color: #5cbc94;
+  border: none;
+  padding: 8px 20px;
+  font-size: 15px;
+  border-radius: 2px;
+  margin: 30px auto 10px auto;
+}
+
+.button-container {
+  text-align: right;
+}
+
+form {
+  /* border: solid 2px #282c34; */
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 30px;
+  width: 60%;
+  width: 400px;
+  margin: 0 auto;
+}
+
+input {
+  /* border: 1px solid #858585; */
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 1px;
+  padding: 5px;
+  width: calc(100% - 12px);
+}
+
+input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+label {
+  line-height: 29.5px;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 1px;
+  background-color: #e5fef4;
+}
+
+input:hover {
+  background-color: #e5fef4;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+  vertical-align: center;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=text] {
+    width: 98.5%;
+  }
+  .nav-menu a {
+    font-size: 14px;
+    width: 90px;
+    padding-top: 15px;
+  }
+  .web-title {
+    font-size: 14px;
+    width: 190px;
+    margin: 0;
+    justify-content: center;
+    margin: auto;
+    padding-top: 40px;
+  }
+}
+
+input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.new-radio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.new-radio::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.radio-label {
+  display: inline;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-right: 25px; 
+
+}
+
+.radio-label:hover input ~ .new-radio {
+  background-color: #ccc;
+}
+
+.radio-label input:checked ~ .new-radio {
+  background-color: #68d2a6;
+}
+
+.radio-label input:checked ~ .new-radio:after {
+  display: block;
+}
+
+.radio-label .new-radio:after {
+  top: 4px;
+	left: 4px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {
