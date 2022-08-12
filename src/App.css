@@ -8,7 +8,7 @@ html * {
 }
 
 .body {
-  padding: 58px;
+  padding: 10px 58px;
 }
 
 h1 {
@@ -16,6 +16,11 @@ h1 {
   font-size: 18px;
   text-align: center;
 }
+
+.center-text {
+  text-align: center;
+}
+
 /* ----------------------- NAV BAR */
 .nav-menu {
   background-color: #e5fef4;
@@ -128,6 +133,7 @@ input:hover {
   width: 25%;
   margin-top: 6px;
   vertical-align: center;
+  margin-top: 20px;
 }
 
 .col-75 {
@@ -194,7 +200,6 @@ input[type='radio'] {
   -ms-user-select: none;
   user-select: none;
   padding-right: 25px; 
-
 }
 
 .radio-label:hover input ~ .new-radio {

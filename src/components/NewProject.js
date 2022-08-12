@@ -33,7 +33,7 @@ function NewProject() {
             </div>
           </div>
           <div className="col-25">
-            <label htmlFor='total-cost'>Total Cost</label>
+            <label htmlFor='total-cost'>Total Estimated Cost</label>
           </div>
           <div className="col-75">
             <input type="text" id='total-cost'/>
