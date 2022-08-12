@@ -7,7 +7,7 @@ function AllProjects( {projects} ) {
     return (
         <div className="body"> 
         <h1>Home Improvement Projects</h1>
-        <p className="center-text">Click the + to reveal more details</p>
+        <p className="center-text">Select a project to view tasks</p>
         <div className="tiles-container">
         {projectList}
         </div>

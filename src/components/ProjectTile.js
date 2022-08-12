@@ -6,13 +6,13 @@ function ProjectTile({ project }) {
     const a = project.priority
     let result
     if (a === 'high') {
-        result = '!!!'
+        result = (<span className="priority-high">!!!</span>)
     } else if (a === 'medium') {
-        result = '!!'
+        result = (<span className="priority-med">!!</span>)
     } else if (a === 'low') {
-        result = '!'
+        result = (<span className="priority-low">!</span>)
     } else {
-        result = ''
+        result = (<span></span>)
     }
 
     // console.log(result)
@@ -22,9 +22,8 @@ function ProjectTile({ project }) {
             <Link to={`/projects/${project.id}`}>
             <div className="tile" key={project.id}> 
                 <div className="tile-body">
-                    {result}
+                    <div className="tile-block">{result}</div>
                     <h2>{project.name}</h2>
-                    {project.priority}
                 </div>
             </div>
            </Link>
