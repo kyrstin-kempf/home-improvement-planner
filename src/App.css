@@ -223,6 +223,70 @@ input[type='radio'] {
 	background: white;
 }
 
+/* ------------------ PROJECT TILE */
+
+.tile-container {
+  display: inline-block;
+}
+
+.tile-container-two {
+  display: inline-block;
+  vertical-align: bottom;
+  padding-top: 20px;
+}
+
+.tile {
+  display: inline-block;
+  width: 260px;
+  height: 335px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 10px;
+  border-radius: 2px;
+  z-index: -1;
+}
+
+.tile-details {
+  display: inline-block;
+  width: 260px;
+  height: 335px;
+  background-color: #EBF5EE;
+  margin: 10px;
+  border: 1px solid #f1f1f1;
+  border-radius: 2px;
+  z-index: -1;
+}
+
+.tile h2 {
+  font-size: 18px;
+}
+
+.line {
+  width: 75%;
+  border: .5px solid rgb(226, 225, 225);
+}
+
+.tile-body {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.tile-info {
+  height: 250px;
+  font-size: 16px;
+  line-height: normal;
+  padding: 25px 20px 20px 20px;
+}
+
+.tile-info h2 {
+  font-size: 16px;
+  padding-top: 20px;
+  margin-bottom: -8px;
+}
+
+/* ------------------------------- */
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

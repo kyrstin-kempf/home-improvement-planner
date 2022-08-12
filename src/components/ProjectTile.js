@@ -6,7 +6,7 @@ function ProjectTile({ project }) {
     return (
         <div className="tile-container">
             <div className="tile" key={project.id}> 
-                <div className="card-body">
+                <div className="tile-body">
                     <hr className="line"></hr>
                     <h2>{project.name}</h2>
                     {/* <button className="circ" onClick={handleClick}>{starred}</button> */}
