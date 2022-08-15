@@ -1,7 +1,22 @@
-import React from "react";
-// import { useNavigate } from "react-router-dom"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 function NewProject() {
+  const [name, setName] = useState('');
+  const [priority, setPriority] = useState('');
+
+  const navigate = useNavigate();
+
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log('clicked')
+  }
+
+  const projectData = {
+    name: name,
+    priority: priority,
+  }
+
     return(
     <div className="body">
       <h1>Project Form Page</h1>
@@ -31,16 +46,10 @@ function NewProject() {
                     <span className="new-radio"></span>Low
                 </label>
             </div>
+            </div>
           </div>
-          <div className="col-25">
-            <label htmlFor='total-cost'>Total Estimated Cost</label>
-          </div>
-          <div className="col-75">
-            <input type="text" id='total-cost'/>
-          </div>
-        </div>
         <div className="button-container">
-        <input type="submit" value="＋ New Project" className="new-project-button"/>
+        <input type="submit" value="Add Project" className="new-project-button"/>
         </div>
       </form>
     </div>
@@ -48,3 +57,11 @@ function NewProject() {
 }
 
 export default NewProject;
+
+      {/* <div className="col-25">
+            <label htmlFor='total-cost'>Total Estimated Cost</label>
+          </div>
+          <div className="col-75">
+            <input type="text" id='total-cost'/>
+          </div>
+        </div> */}
