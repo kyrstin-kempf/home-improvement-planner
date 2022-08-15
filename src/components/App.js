@@ -18,16 +18,20 @@ const App = () => {
       const data = await response.json();
       setProjects(data);
     }
-  
+    
     fetchProjects();
   }, []);
-
+  
+  const addProject = (project) => {
+    setProjects([...projects, project])
+  }
+  
   return (
     <BrowserRouter>
       <NavBar />
       <Routes>
         <Route path="/" element={<AllProjects projects={projects} />} />
-        <Route path="/projects/new" element={<NewProject/>} />
+        <Route path="/projects/new" element={<NewProject addProject={addProject} />} />
         <Route path="/projects/:id" element={<OneProject projects={projects} />} />
       </Routes>
     </BrowserRouter>

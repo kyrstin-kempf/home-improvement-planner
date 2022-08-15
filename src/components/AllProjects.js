@@ -1,6 +1,6 @@
 import ProjectTile from "./ProjectTile";
 
-function AllProjects( {projects} ) {
+function AllProjects({ projects }) {
   
     const projectList = projects.map((project) => <ProjectTile key={ project.id } project={ project } />)
 
