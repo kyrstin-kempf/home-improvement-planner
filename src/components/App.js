@@ -28,7 +28,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<AllProjects projects={projects} />} />
         <Route path="/projects/new" element={<NewProject/>} />
-        <Route path="/projects/:id" element={<OneProject/>} />
+        <Route path="/projects/:id" element={<OneProject projects={projects} />} />
       </Routes>
     </BrowserRouter>
     );
