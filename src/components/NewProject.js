@@ -10,24 +10,25 @@ function NewProject({ addProject }) {
   const handleSubmit = e => {
     e.preventDefault();
     console.log('clicked')
-  
 
-  const projectData = {
-    name: name,
-    priority: priority,
-  }
+    const projectData = {
+      name: name,
+      priority: priority,
+    }
 
-  fetch(`http://localhost:9292/projects`, {
-    method: "POST",
-    headers: {
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(projectData)
-  })
-  .then(r => r.json())
-  .then(data => addProject(data))
-  .then(newProject => navigate('/'))
+    fetch(`http://localhost:9292/projects`, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(projectData)
+    })
+    .then(r => r.json())
+    .then(data => { 
+      addProject(data)
+    })
+    .then(newProject => navigate('/'))
 }
 
     return (
@@ -61,18 +62,10 @@ function NewProject({ addProject }) {
             </div>
             </div>
           </div>
-        <input type="submit" className="new-project-button"/>
+        <input type="submit" className="new-project-button" value="Add Project" />
       </form>
     </div>
     );
 }
 
 export default NewProject;
-
-      {/* <div className="col-25">
-            <label htmlFor='total-cost'>Total Estimated Cost</label>
-          </div>
-          <div className="col-75">
-            <input type="text" id='total-cost'/>
-          </div>
-        </div> */}

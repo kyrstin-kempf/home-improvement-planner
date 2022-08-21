@@ -87,6 +87,31 @@ a[aria-current="page"]#button {
   margin-left: 10px;
 }
 
+
+#dropdown {
+  text-align: left;
+  position: absolute;
+  left: 325px;
+  top: 55px;
+  box-shadow: #00000029 0px 1px 4px;
+  width: 100px;
+  border-radius: 2px;
+}
+
+div.links {
+  padding: 10px 5px 10px 20px;
+  /* margin: 10px; */
+  text-decoration: none;
+  display: block;
+  color: #000;
+  font-weight: 400;
+}
+
+div.links:hover {
+  background-color: rgb(239, 239, 239);
+}
+
+
 /* ------------------------------- */
 .new-project-button {
   background-color: #68d2a6;
@@ -280,10 +305,11 @@ input[type='radio'] {
   font-weight: 600;
 }
 
-.grid-container {
+.details-container {
   /* grid-template-columns: 1fr 380px; */
   grid-template-rows: [row1-start] 60px [row2-start] 280px;
   position: relative;
+  height: auto;
   width: 400px;
   display: inline-grid;  
   align-items: center;
@@ -291,7 +317,7 @@ input[type='radio'] {
   padding: 10px 35px;
   margin: 10px;
   border-radius: 2px;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .grid-container h2 {
@@ -332,6 +358,15 @@ input[type='radio'] {
   margin: 0 10px 0 0;
 }
 
+.item4 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  position: absolute;
+  justify-self: center;
+  align-self: end;
+  right: 110px; 
+}
+
 li {
   list-style: none;
   margin: 0;
@@ -339,8 +374,53 @@ li {
   word-wrap: none;
 }
 
-#edit-icon {
+.edit-icon {
   font-size: 20px;
+  border: none;
+  background: none;
+}
+.edit-icon-2 {
+  font-size: 20px;
+  border: none;
+  background: none;
+  width: 50px;
+}
+.edit-icon:hover {
+  font-size: 20px;
+  border: none;
+  border-radius: 2px;
+  background: rgb(239, 239, 239);
+}
+.edit-icon-2:hover {
+  font-size: 20px;
+  border: none;
+  border-radius: 2px;
+  background: rgb(239, 239, 239);
+}
+
+#add-task-icon {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  /* justify-items: stretch; */
+  /* padding-left: 15px; */
+  padding-bottom: 10px;
+  padding-top: 5px;
+  /* width: 50px; */
+  /* align-self: center; */
+}
+
+.add-task {
+  font-size: 20px;
+  border: none;
+  background: none;
+}
+
+#new-task-form {
+  display: block;
+  position: relative;
+  box-shadow: none;
+  padding: 5px 0px;
+  width: 250px;
 }
 
 .priority-high {
