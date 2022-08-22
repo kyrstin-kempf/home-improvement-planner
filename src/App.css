@@ -96,6 +96,17 @@ a[aria-current="page"]#button {
   box-shadow: #00000029 0px 1px 4px;
   width: 100px;
   border-radius: 2px;
+  background-color: #FFF;
+}
+#dropdown {
+  text-align: left;
+  position: absolute;
+  left: 325px;
+  top: 55px;
+  box-shadow: #00000029 0px 1px 4px;
+  width: 100px;
+  border-radius: 2px;
+  background-color: #FFF;
 }
 
 div.links {
@@ -105,6 +116,10 @@ div.links {
   display: block;
   color: #000;
   font-weight: 400;
+
+}
+div.links#ed {
+  border-bottom: 1px solid #00000029;
 }
 
 div.links:hover {
@@ -307,14 +322,14 @@ input[type='radio'] {
 
 .details-container {
   /* grid-template-columns: 1fr 380px; */
-  grid-template-rows: [row1-start] 60px [row2-start] 280px;
+  grid-template-rows: [row1-start] 60px [row2-start] auto;
   position: relative;
-  height: auto;
+  /* height: auto; */
   width: 400px;
   display: inline-grid;  
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: 10px 35px;
+  padding: 10px 35px 100px 35px;
   margin: 10px;
   border-radius: 2px;
   /* z-index: -1; */
@@ -340,6 +355,10 @@ input[type='radio'] {
 .item3 /* Tasks */ { 
   align-self: start;
   text-align: left;
+}
+
+.item3 li { 
+  width: 400px;
 }
 
 .item3 label {
@@ -378,12 +397,21 @@ li {
   font-size: 20px;
   border: none;
   background: none;
+  position: absolute;
+  top: 28px;
+  right: 30px;
 }
+
+.icon-pencil {
+  color: rgb(83, 83, 83);
+  float: right;
+}
+
 .edit-icon-2 {
   font-size: 20px;
   border: none;
   background: none;
-  width: 50px;
+  width: 45px;
 }
 .edit-icon:hover {
   font-size: 20px;
@@ -392,6 +420,13 @@ li {
   background: rgb(239, 239, 239);
 }
 .edit-icon-2:hover {
+  font-size: 20px;
+  border: none;
+  border-radius: 2px;
+  background: rgb(239, 239, 239);
+}
+
+.edit-icon-2:active {
   font-size: 20px;
   border: none;
   border-radius: 2px;

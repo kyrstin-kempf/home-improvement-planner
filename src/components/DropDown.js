@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 
-function DropDown( { deleteProject } ) {
+function DropDown( { deleteProject, handleEdit } ) {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ function DropDown( { deleteProject } ) {
 
   return (
     <div id="dropdown">
-      <div className="links">Edit</div>
+      <div className="links" id="ed" onClick={handleEdit}>Edit</div>
       <div className="links" onClick={handleDelete}>Delete</div>
     </div>
   );

@@ -7,8 +7,6 @@ import OneProject from './OneProject';
 
 const App = () => {
   const [projects, setProjects] = useState([]);
-  // const [tasks, setTasks] = useState([]);
-
   
   useEffect(() => {
     document.title = "Home Projects";
@@ -17,6 +15,23 @@ const App = () => {
   const addProject = (project) => {
     // debugger
     setProjects([...projects, project])
+  }
+  
+  const addTask = (task) => {
+    // console.log(task);
+    const p = projects.find(p => p.id == task.project_id)
+    const newP = {...p, tasks: [...p.tasks, task]}
+    // const newTasks = [...p.tasks, task]
+    // const newP = {...p, tasks: newTasks}
+    const newProjects = projects.map((proj) => proj.id === p.id ? newP : proj)
+    // const newProjects = projects.map((proj) => {
+    //   if (proj.id === p.id) {
+    //     return newP
+    //   } else {
+    //     return proj
+    //   }
+    // })
+    setProjects(newProjects)
   }
   
   function deleteProject(id) {
@@ -42,7 +57,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<AllProjects projects={projects} />} />
         <Route path="/projects/new" element={<NewProject addProject={addProject} />} />
-        <Route path="/projects/:id" element={<OneProject projects={projects} deleteProject={deleteProject} />} />
+        <Route path="/projects/:id" element={<OneProject projects={projects} addTask={addTask} deleteProject={deleteProject} handleTaskEdit={handleTaskEdit} />} />
       </Routes>
     </BrowserRouter>
     );

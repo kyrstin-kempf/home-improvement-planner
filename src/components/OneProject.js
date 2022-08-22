@@ -3,25 +3,17 @@ import { useParams} from "react-router-dom";
 import DropDown from "./DropDown";
 // import NewTask from "./NewTask";
 
-const OneProject = ({ projects, deleteProject }) => {
+const OneProject = ({ projects, addTask, deleteProject, handleTaskEdit }) => {
   const { id } = useParams();
   const [name, setName] = useState('');
   const [isShown, setIsShown] = useState(false);
-  const [tasks, setTasks] = useState([]);
+  const [canEditTasks, setCanEditTasks] = useState(false);
+  // const [saveTasks, setSaveTasks] = useState(false);
 
   const editCard = '⋮'
   const handleClick = () => {
     setIsShown(!isShown)
   };
-  
-  let thisProject = projects.filter(project => project.id == id)
-  // console.log(thisProject)
-  let thisProjectTasks = thisProject.map(p => p.tasks)
-  console.log(thisProjectTasks)
-  console.log(thisProjectTasks.map(t => t.id))
-
-  console.log(projects.filter(project => project.id == id).map(project => (
-    project.tasks.map(task => (task.name)))))
 
   let tasksList = projects.filter(project => project.id == id).map(project => (
       project.tasks.map(task => (      
@@ -33,28 +25,16 @@ const OneProject = ({ projects, deleteProject }) => {
             // onChange={() => handleOnChange(task.id)}
             />
             <label htmlFor={`checkbox-${task.id}`}>{task.name}</label>
+            {canEditTasks && (
+              <i className="icon-pencil" onClick={handleTaskEdit}></i>
+            )}
           </li>
         )))
       ); 
       
 
-  const addTask = (task) => {
-    setTasks([...tasks, task])
-  }
-
-  // useEffect(() => {
-  //   const fetchTasks = async () => {
-  //     const response = await fetch('http://localhost:9292/projects')
-  //     const data = await response.json();
-  //     addTask(data);
-  //   }
-    
-  //   fetchTasks();
-  // }, []);
-  
   let result
-  const projectPriority = projects.filter(project => project.id == id)
-  .map((project) => {
+  projects.filter(project => project.id == id).map((project) => {
     const a = project.priority
     if (a === 'high') {
         result = (<span className="priority-high-task-view">!!!</span>)
@@ -70,7 +50,6 @@ const OneProject = ({ projects, deleteProject }) => {
   const handleAddTask = (e) => {
     e.preventDefault();
     console.log('clicked')
-
   
     const newTaskData = {
         name: name,
@@ -88,9 +67,15 @@ const OneProject = ({ projects, deleteProject }) => {
     })
     .then(r => r.json())
     .then(data => {
+      console.log(data);
     addTask(data)
     })
-}  
+  }
+  
+  function handleEdit() {
+    setIsShown(!isShown)
+    setCanEditTasks(!canEditTasks)
+  }
 
   return (
     <div className="tiles-container">
@@ -104,14 +89,12 @@ const OneProject = ({ projects, deleteProject }) => {
             <div className="item2">
               <button className="edit-icon" onClick={handleClick}>{editCard}</button>
               {isShown && (
-                <DropDown deleteProject={deleteProject}/>
+                <DropDown deleteProject={deleteProject} handleEdit={handleEdit} />
               )}
             </div>
             <div className="item3">
               {tasksList}
-              {/* {t} */}
             </div>
-            {/* <NewTask addTask={addTask}/> */}
             <div className="item4">
               <form id="new-task-form" onSubmit={handleAddTask}>
               <input type="text" id="new-task" value={name} onChange={ (e) => setName(e.target.value)} />
