@@ -1,36 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams} from "react-router-dom";
 import DropDown from "./DropDown";
+import TaskList from "./TaskList";
 // import NewTask from "./NewTask";
 
-const OneProject = ({ projects, addTask, deleteProject, handleTaskEdit }) => {
+const OneProject = ({ projects, addTask, deleteProject, editTask }) => {
   const { id } = useParams();
   const [name, setName] = useState('');
   const [isShown, setIsShown] = useState(false);
   const [canEditTasks, setCanEditTasks] = useState(false);
-  // const [saveTasks, setSaveTasks] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   const editCard = '⋮'
   const handleClick = () => {
     setIsShown(!isShown)
   };
 
-  let tasksList = projects.filter(project => project.id == id).map(project => (
-      project.tasks.map(task => (      
-          <li key={task.id}>
-            <input 
-            type="checkbox" 
-            id={`checkbox-${task.id}`} 
-            // checked={isChecked[task.id]} 
-            // onChange={() => handleOnChange(task.id)}
-            />
-            <label htmlFor={`checkbox-${task.id}`}>{task.name}</label>
-            {canEditTasks && (
-              <i className="icon-pencil" onClick={handleTaskEdit}></i>
-            )}
-          </li>
-        )))
-      ); 
+  const tasksList = projects.filter(project => project.id == id).map(project => (
+      project.tasks.map(task => (
+        <TaskList
+        key={task.id} 
+        task={task}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
+        setCanEditTasks={setCanEditTasks}
+        canEditTasks={canEditTasks}
+        />
+      )
+      ))
+    );
       
 
   let result
@@ -47,9 +45,10 @@ const OneProject = ({ projects, addTask, deleteProject, handleTaskEdit }) => {
     };
   });
 
+
   const handleAddTask = (e) => {
     e.preventDefault();
-    console.log('clicked')
+    // console.log('clicked')
   
     const newTaskData = {
         name: name,
@@ -71,7 +70,7 @@ const OneProject = ({ projects, addTask, deleteProject, handleTaskEdit }) => {
     addTask(data)
     })
   }
-  
+
   function handleEdit() {
     setIsShown(!isShown)
     setCanEditTasks(!canEditTasks)

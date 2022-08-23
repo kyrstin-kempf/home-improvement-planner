@@ -41,6 +41,31 @@ const App = () => {
     // setGods(gods.filter(god => god.id !== id));
   }
   
+  // function editTask(editTaskData) {
+  //   // console.log(e.target.id)
+  //   const p = projects.find(p => p.id == editTaskData.project_id)
+
+  //   const editedTaskList = projects.map((proj) => {
+  //     if (p) {
+  //       return {...p, tasks: [...p.tasks, task]}
+  //     }
+  //     return proj
+  //   });
+  //   setProjects(editedTaskList);
+  // }
+
+  //   const newProjects = projects.map((proj) => {
+  //     //   if (proj.id === p.id) {
+  //     //     return newP
+  //     //   } else {
+  //     //     return proj
+  //     //   }
+  //     // })
+    
+  //   const newTasks = [...p.tasks, task]
+  //   const newP = {...p, tasks: newTasks}
+  // })
+
   useEffect(() => {
     const fetchProjects = async () => {
       const response = await fetch('http://localhost:9292/projects')
@@ -57,7 +82,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<AllProjects projects={projects} />} />
         <Route path="/projects/new" element={<NewProject addProject={addProject} />} />
-        <Route path="/projects/:id" element={<OneProject projects={projects} addTask={addTask} deleteProject={deleteProject} handleTaskEdit={handleTaskEdit} />} />
+        <Route path="/projects/:id" element={<OneProject projects={projects} addTask={addTask} deleteProject={deleteProject} />} />
       </Routes>
     </BrowserRouter>
     );

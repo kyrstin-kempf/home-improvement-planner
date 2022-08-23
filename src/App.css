@@ -458,6 +458,20 @@ li {
   width: 250px;
 }
 
+input.edit-one-task {
+  width: 285px;
+}
+
+div.edit-trash-save {
+  color: rgb(83, 83, 83);
+  float: right;
+  padding-top: 1px;
+}
+i.icon-ok#save {
+  color:#5cbc94;
+  padding-right: 25px;
+}
+
 .priority-high {
   color: red;
   position: absolute;
