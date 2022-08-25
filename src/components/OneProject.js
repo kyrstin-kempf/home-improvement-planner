@@ -7,7 +7,6 @@ const OneProject = ({ projects, addTask, deleteTask, deleteProject, addUpdatedTa
   const { id } = useParams();
   const [name, setName] = useState(''); // adding new task
   const [isShown, setIsShown] = useState(false); // dropdown options
-  const [canEditTasks, setCanEditTasks] = useState(false); // pencil edit
   const [isEditing, setIsEditing] = useState(false); // show save/delete icons
 
   const editCard = '⋮'
@@ -22,8 +21,6 @@ const OneProject = ({ projects, addTask, deleteTask, deleteProject, addUpdatedTa
         task={task}
         isEditing={isEditing}
         setIsEditing={setIsEditing}
-        setCanEditTasks={setCanEditTasks}
-        canEditTasks={canEditTasks}
         addTask={addTask}
         deleteTask={deleteTask}
         addUpdatedTask={addUpdatedTask}
@@ -31,8 +28,6 @@ const OneProject = ({ projects, addTask, deleteTask, deleteProject, addUpdatedTa
       )
       ))
     );
-      
-    // console.log(tasksList)
 
   let result
   projects.filter(project => project.id == id).map((project) => {
@@ -48,10 +43,8 @@ const OneProject = ({ projects, addTask, deleteTask, deleteProject, addUpdatedTa
     };
   });
 
-
   const handleAddTask = (e) => {
     e.preventDefault();
-    // console.log('clicked')
   
     const newTaskData = {
         name: name,
@@ -78,7 +71,6 @@ const OneProject = ({ projects, addTask, deleteTask, deleteProject, addUpdatedTa
   function handleEdit() {
     setIsShown(!isShown)
     setIsEditing(!isEditing)
-    // setCanEditTasks(!canEditTasks)
   }
 
   return (

@@ -4,8 +4,6 @@ function TaskList({
     task, 
     isEditing, 
     setIsEditing, 
-    setCanEditTasks, 
-    canEditTasks,
     deleteTask,
     addUpdatedTask
 }) {
@@ -16,11 +14,12 @@ function TaskList({
         setTaskName(e.target.value)
     }
 
-    const handlePencilClick = (e) => {
-        // console.log(e.target.id)
-        setCanEditTasks(!canEditTasks)
-        setIsEditing(!isEditing)
-      };
+    const handleCheckbox = (e) => {
+        console.log(e.target.checked)
+        setIsChecked(!isChecked)
+        console.log(!isChecked)
+        handleUpdateTask()
+      }
 
     const viewTemplate = (
         <>
@@ -28,9 +27,6 @@ function TaskList({
             <div className="edit-trash-save">
                 <span id="delete-task" onClick={() => handleDeleteTask()}>x</span>
             </div>
-            {canEditTasks && (
-                <i className="icon-pencil" id={task.id} onClick={handlePencilClick}></i>
-            )}
         </>
     );
   
@@ -46,12 +42,6 @@ function TaskList({
             </div>
         </>
     );
-
-    // function handleCheck(e) {
-    //     console.log(e.target.checked);
-    //     setIsChecked(e.target.checked);
-    //     handleUpdateTask()
-    // }
 
     function handleDeleteTask() {    
         fetch(`http://localhost:9292/tasks/${task.id}`, {
@@ -69,7 +59,7 @@ function TaskList({
             },
             body: JSON.stringify({
                 name: taskName,
-                task_status: isChecked,
+                task_status: !isChecked,
             })
         })
         .then(r => r.json())
@@ -77,7 +67,6 @@ function TaskList({
             console.log(data);
           addUpdatedTask(data);
         })
-        // setIsEditing(!isEditing);
       }
       
     return (
@@ -86,12 +75,8 @@ function TaskList({
                 <input 
                 type="checkbox" 
                 id={`checkbox${task.id}`} 
-                checked={isChecked} 
-                onChange={(e) => {
-                
-                    setIsChecked(current => !current)
-                }}
-                onClick={() => handleUpdateTask()}
+                checked={isChecked}
+                onChange={handleCheckbox} 
                 />
                 {isEditing ? editingTemplate : viewTemplate}
             </li>

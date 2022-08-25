@@ -1,8 +1,8 @@
 import ProjectTile from "./ProjectTile";
 
-function AllProjects({ projects }) {
+function AllProjects({ projects, deleteProject }) {
   
-    const projectList = projects.map((project) => <ProjectTile key={ project.id } project={ project } />)
+    const projectList = projects.map((project) => <ProjectTile key={ project.id } project={ project } deleteProject={deleteProject} />)
 
     return (
         <div className="body"> 
