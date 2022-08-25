@@ -116,7 +116,7 @@ div.links {
   display: block;
   color: #000;
   font-weight: 400;
-
+  z-index: 2;
 }
 div.links#ed {
   border-bottom: 1px solid #00000029;
@@ -323,6 +323,7 @@ input[type='radio'] {
 .details-container {
   /* grid-template-columns: 1fr 380px; */
   grid-template-rows: [row1-start] 60px [row2-start] auto;
+  min-height: 150px;
   position: relative;
   /* height: auto; */
   width: 400px;
@@ -402,6 +403,13 @@ li {
   right: 30px;
 }
 
+.edit-icon:hover {
+  font-size: 20px;
+  border: none;
+  border-radius: 2px;
+  background: rgb(239, 239, 239);
+}
+
 .icon-pencil {
   color: rgb(83, 83, 83);
   float: right;
@@ -413,24 +421,24 @@ li {
   background: none;
   width: 45px;
 }
-.edit-icon:hover {
-  font-size: 20px;
-  border: none;
-  border-radius: 2px;
-  background: rgb(239, 239, 239);
-}
 .edit-icon-2:hover {
   font-size: 20px;
-  border: none;
   border-radius: 2px;
   background: rgb(239, 239, 239);
 }
 
-.edit-icon-2:active {
-  font-size: 20px;
+.edit-icon-2:focus {
   border: none;
-  border-radius: 2px;
-  background: rgb(239, 239, 239);
+  background: inherit;
+}
+
+.button:focus, input:focus, span.new-radio:focus  {
+  outline: 5px auto Highlight;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+.strike {
+  text-decoration: line-through;
 }
 
 #add-task-icon {
@@ -459,17 +467,21 @@ li {
 }
 
 input.edit-one-task {
-  width: 285px;
+  width: 335px;
 }
 
 div.edit-trash-save {
-  color: rgb(83, 83, 83);
+  color: rgb(153, 150, 150);
   float: right;
-  padding-top: 1px;
+  /* padding-top: 5px; */
+  font-size: 18px;
+  cursor: pointer;
 }
+
 i.icon-ok#save {
   color:#5cbc94;
-  padding-right: 25px;
+  margin-right: -6px;
+  /* padding-right: 20px; */
 }
 
 .priority-high {

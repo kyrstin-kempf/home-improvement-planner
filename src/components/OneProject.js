@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { useParams} from "react-router-dom";
 import DropDown from "./DropDown";
 import TaskList from "./TaskList";
-// import NewTask from "./NewTask";
 
-const OneProject = ({ projects, addTask, deleteProject, editTask }) => {
+const OneProject = ({ projects, addTask, deleteTask, deleteProject, addUpdatedTask }) => {
   const { id } = useParams();
-  const [name, setName] = useState('');
-  const [isShown, setIsShown] = useState(false);
-  const [canEditTasks, setCanEditTasks] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
+  const [name, setName] = useState(''); // adding new task
+  const [isShown, setIsShown] = useState(false); // dropdown options
+  const [canEditTasks, setCanEditTasks] = useState(false); // pencil edit
+  const [isEditing, setIsEditing] = useState(false); // show save/delete icons
 
   const editCard = '⋮'
   const handleClick = () => {
@@ -17,7 +16,7 @@ const OneProject = ({ projects, addTask, deleteProject, editTask }) => {
   };
 
   const tasksList = projects.filter(project => project.id == id).map(project => (
-      project.tasks.map(task => (
+      project.tasks.map(task => ( 
         <TaskList
         key={task.id} 
         task={task}
@@ -25,11 +24,15 @@ const OneProject = ({ projects, addTask, deleteProject, editTask }) => {
         setIsEditing={setIsEditing}
         setCanEditTasks={setCanEditTasks}
         canEditTasks={canEditTasks}
+        addTask={addTask}
+        deleteTask={deleteTask}
+        addUpdatedTask={addUpdatedTask}
         />
       )
       ))
     );
       
+    // console.log(tasksList)
 
   let result
   projects.filter(project => project.id == id).map((project) => {
@@ -66,14 +69,16 @@ const OneProject = ({ projects, addTask, deleteProject, editTask }) => {
     })
     .then(r => r.json())
     .then(data => {
-      console.log(data);
-    addTask(data)
+      // console.log(data);
+      addTask(data)
     })
+    setName('')
   }
 
   function handleEdit() {
     setIsShown(!isShown)
-    setCanEditTasks(!canEditTasks)
+    setIsEditing(!isEditing)
+    // setCanEditTasks(!canEditTasks)
   }
 
   return (

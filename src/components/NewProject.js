@@ -28,6 +28,7 @@ function NewProject({ addProject }) {
     .then(data => { 
       addProject(data)
     })
+    // add to state array
     .then(newProject => navigate('/'))
 }
 

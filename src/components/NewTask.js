@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useParams} from "react-router-dom";
 
 const NewTask = ({ addTask }) => {
     const [name, setName] = useState('');
     const { id } = useParams();
+    const nameRef = useRef(null);
 
     const handleAddTask = (e) => {
         e.preventDefault();
@@ -27,13 +28,14 @@ const NewTask = ({ addTask }) => {
         .then(r => r.json())
         .then(data => {
         addTask(data)
-        })
+        setName('')
+    })
     }
 
   return (
     <div className="item4">
         <form id="new-task-form" onSubmit={handleAddTask}>
-        <input type="text" id="new-task" value={name} onChange={ (e) => setName(e.target.value)} />
+        <input type="text" id="new-task" value={name} ref={nameRef} onChange={ (e) => setName(e.target.value)} />
         <label htmlFor="new-task"></label>
         <div id="add-task-icon">
             <input type="submit" className="edit-icon-2" value="＋" />

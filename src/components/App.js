@@ -16,6 +16,8 @@ const App = () => {
     // debugger
     setProjects([...projects, project])
   }
+
+  // console.log(projects)
   
   const addTask = (task) => {
     // console.log(task);
@@ -31,40 +33,35 @@ const App = () => {
     //     return proj
     //   }
     // })
+    // console.log(newP)
     setProjects(newProjects)
   }
   
   function deleteProject(id) {
     const dProject = projects.filter(project => project.id.toString() !== id)
-    // console.log(dGod);
     setProjects(dProject);
-    // setGods(gods.filter(god => god.id !== id));
+  }
+
+  const addUpdatedTask = (updatedTask) => {
+    const p = projects.find(p => p.id == updatedTask.project_id)
+    const projTask = p.tasks.map(t => {
+      if(t.id == updatedTask.id) {
+        return updatedTask
+      } return t
+    })
+    const newP = {...p, tasks: projTask}
+    const newProjects = projects.map((proj) => proj.id === p.id ? newP : proj)
+    setProjects(newProjects);
   }
   
-  // function editTask(editTaskData) {
-  //   // console.log(e.target.id)
-  //   const p = projects.find(p => p.id == editTaskData.project_id)
-
-  //   const editedTaskList = projects.map((proj) => {
-  //     if (p) {
-  //       return {...p, tasks: [...p.tasks, task]}
-  //     }
-  //     return proj
-  //   });
-  //   setProjects(editedTaskList);
-  // }
-
-  //   const newProjects = projects.map((proj) => {
-  //     //   if (proj.id === p.id) {
-  //     //     return newP
-  //     //   } else {
-  //     //     return proj
-  //     //   }
-  //     // })
-    
-  //   const newTasks = [...p.tasks, task]
-  //   const newP = {...p, tasks: newTasks}
-  // })
+  function deleteTask(data) {
+    const p = projects.find(p => p.id == data.project_id)
+    console.log(p)
+    const projTask = p.tasks.filter(t => t.id !== data.id)
+    const newP = {...p, tasks: projTask}
+    const newProjects = projects.map((proj) => proj.id === p.id ? newP : proj)
+    setProjects(newProjects);
+  }
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -82,7 +79,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<AllProjects projects={projects} />} />
         <Route path="/projects/new" element={<NewProject addProject={addProject} />} />
-        <Route path="/projects/:id" element={<OneProject projects={projects} addTask={addTask} deleteProject={deleteProject} />} />
+        <Route path="/projects/:id" element={projects.length > 0 && <OneProject 
+        projects={projects} 
+        addTask={addTask} 
+        deleteProject={deleteProject} 
+        deleteTask={deleteTask}
+        addUpdatedTask={addUpdatedTask}
+        />} />
       </Routes>
     </BrowserRouter>
     );
