@@ -72,7 +72,7 @@ function TaskList({
     return (
         <div>
             <li>
-                <input 
+                <input
                 type="checkbox" 
                 id={`checkbox${task.id}`} 
                 checked={isChecked}
