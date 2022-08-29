@@ -1,3 +1,4 @@
+/* ----------------------------------- GLOBALS */
 html * {
   font-family: Helvetica;
   font-size: 15px;
@@ -21,7 +22,7 @@ h1 {
   text-align: center;
 }
 
-/* ----------------------- NAV BAR */
+/* ----------------------------------- NAV BAR */
 .nav-menu {
   background-color: #e5fef4;
   padding-left: 58px;
@@ -87,6 +88,32 @@ a[aria-current="page"]#button {
   margin-left: 10px;
 }
 
+/* ----------------------------------- BUTTONS */
+
+.new-project-button {
+  background-color: #68d2a6;
+  border: none;
+  padding: 8px 20px;
+  font-size: 15px;
+  border-radius: 2px;
+  margin: 30px auto 10px auto;
+  width: 40%;
+}
+
+.new-project-button:hover {
+  background-color: #5cbc94;
+  border: none;
+  padding: 8px 20px;
+  font-size: 15px;
+  border-radius: 2px;
+  margin: 30px auto 10px auto;
+}
+
+.button-container {
+  text-align: right;
+}
+
+/* ----------------------------------- TILE DROPDOWN MENU */
 
 #dropdown {
   text-align: left;
@@ -126,30 +153,7 @@ div.links:hover {
   background-color: rgb(239, 239, 239);
 }
 
-
-/* ------------------------------- */
-.new-project-button {
-  background-color: #68d2a6;
-  border: none;
-  padding: 8px 20px;
-  font-size: 15px;
-  border-radius: 2px;
-  margin: 30px auto 10px auto;
-  width: 40%;
-}
-
-.new-project-button:hover {
-  background-color: #5cbc94;
-  border: none;
-  padding: 8px 20px;
-  font-size: 15px;
-  border-radius: 2px;
-  margin: 30px auto 10px auto;
-}
-
-.button-container {
-  text-align: right;
-}
+/* ----------------------------------- FORM */
 
 form {
   /* border: solid 2px #282c34; */
@@ -205,25 +209,6 @@ input:hover {
   content: "";
   display: table;
   clear: both;
-}
-
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=text] {
-    width: 98.5%;
-  }
-  .nav-menu a {
-    font-size: 14px;
-    width: 90px;
-    padding-top: 15px;
-  }
-  .web-title {
-    font-size: 14px;
-    width: 190px;
-    margin: 0;
-    justify-content: center;
-    margin: auto;
-    padding-top: 40px;
-  }
 }
 
 input[type='radio'] {
@@ -282,7 +267,29 @@ input[type='radio'] {
 	background: white;
 }
 
-/* ------------------ PROJECT TILE */
+/* ----------------------------------- RESPONSIVENESS */
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=text] {
+    width: 98.5%;
+  }
+  .nav-menu a {
+    font-size: 14px;
+    width: 90px;
+    padding-top: 15px;
+  }
+  .web-title {
+    font-size: 14px;
+    width: 190px;
+    margin: 0;
+    justify-content: center;
+    margin: auto;
+    padding-top: 40px;
+  }
+}
+
+/* ----------------------------------- PROJECT TILE FORM */
+
 .tiles-container {
   text-align: center;
   padding-top: 30px;
@@ -321,11 +328,9 @@ input[type='radio'] {
 }
 
 .details-container {
-  /* grid-template-columns: 1fr 380px; */
   grid-template-rows: [row1-start] 60px [row2-start] auto;
   min-height: 150px;
   position: relative;
-  /* height: auto; */
   width: 400px;
   display: inline-grid;  
   align-items: center;
@@ -333,7 +338,6 @@ input[type='radio'] {
   padding: 10px 35px 100px 35px;
   margin: 10px;
   border-radius: 2px;
-  /* z-index: -1; */
 }
 
 .grid-container h2 {
@@ -363,15 +367,11 @@ input[type='radio'] {
 }
 
 .item3 label {
-  /* display: inline-block; */
-  /* width: 250px; */
-  /* text-align: left; */
   vertical-align: middle;
   justify-self: left;
 }
 
 .item3 input {
-  /* display: inline; */
   vertical-align: middle;
   width: 15px;
   height: 15px;
@@ -418,7 +418,6 @@ input[type="checkbox"]::after {
   font-size: 14px;
   font-weight: 900;
   color: #5cbc94;
-  /* background: #fff; */
   display: none;
 }
 
@@ -431,11 +430,6 @@ input[type="checkbox"]:checked::after {
   font-size: 20px;
   border: none;
   border-radius: 2px;
-}
-
-.icon-pencil {
-  color: rgb(83, 83, 83);
-  float: right;
 }
 
 .edit-icon-2 {
@@ -455,18 +449,6 @@ input[type="checkbox"]:checked::after {
   background: inherit;
 }
 
-/* ----------------- check */
-
-
-
-/* ------------------ */
-
-
-.button:focus, input:focus, span.new-radio:focus  {
-  outline: 5px auto Highlight;
-  outline: 5px auto -webkit-focus-ring-color;
-}
-
 .strike {
   text-decoration: line-through;
   color: rgb(153, 150, 150);
@@ -475,12 +457,8 @@ input[type="checkbox"]:checked::after {
 #add-task-icon {
   grid-column-start: 1;
   grid-column-end: 3;
-  /* justify-items: stretch; */
-  /* padding-left: 15px; */
   padding-bottom: 10px;
   padding-top: 5px;
-  /* width: 50px; */
-  /* align-self: center; */
 }
 
 .add-task {
@@ -504,7 +482,6 @@ input.edit-one-task {
 div.edit-trash-save {
   color: rgb(153, 150, 150);
   float: right;
-  /* padding-top: 5px; */
   font-size: 18px;
   cursor: pointer;
 }
@@ -514,6 +491,16 @@ i.icon-ok#save {
   margin-right: -6px;
   /* padding-right: 20px; */
 }
+
+
+/* ----------------------------------- ACCESSIBILITY */
+
+.button:focus, input:focus, span.new-radio:focus  {
+  outline: 5px auto Highlight;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+/* ----------------------------------- PROJECTS VIEW */
 
 .priority-high {
   color: red;
@@ -562,37 +549,4 @@ i.icon-ok#save {
   font-size: 18px;
   font-weight: 500;
   letter-spacing: 3px;
-}
-
-/* ------------------------------- */
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
