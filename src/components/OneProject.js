@@ -13,9 +13,11 @@ const OneProject = ({ projects, addTask, deleteTask, deleteProject, addUpdatedTa
   const handleClick = () => {
     setIsShown(!isShown)
   };
+  
+  console.log(projects)
 
-  const tasksList = projects.filter(project => project.id == id).map(project => (
-      project.tasks.map(task => ( 
+  const project = projects.find(project => project.id == id)
+  const tasksList = project.tasks ? project.tasks.map(task => ( 
         <TaskList
         key={task.id} 
         task={task}
@@ -25,9 +27,7 @@ const OneProject = ({ projects, addTask, deleteTask, deleteProject, addUpdatedTa
         deleteTask={deleteTask}
         addUpdatedTask={addUpdatedTask}
         />
-      )
-      ))
-    );
+      )) : null
 
   let result
   projects.filter(project => project.id == id).map((project) => {
@@ -62,7 +62,7 @@ const OneProject = ({ projects, addTask, deleteTask, deleteProject, addUpdatedTa
     })
     .then(r => r.json())
     .then(data => {
-      // console.log(data);
+      console.log(data);
       addTask(data)
     })
     setName('')

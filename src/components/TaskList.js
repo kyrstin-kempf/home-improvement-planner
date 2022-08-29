@@ -59,7 +59,7 @@ function TaskList({
             },
             body: JSON.stringify({
                 name: taskName,
-                task_status: !isChecked,
+                task_status: isChecked,
             })
         })
         .then(r => r.json())

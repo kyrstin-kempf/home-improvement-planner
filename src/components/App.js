@@ -7,7 +7,7 @@ import OneProject from './OneProject';
 
 const App = () => {
   const [projects, setProjects] = useState([]);
-  
+
   useEffect(() => {
     document.title = "Home Projects";
   }, []);
@@ -17,11 +17,12 @@ const App = () => {
     setProjects([...projects, project])
   }
 
-  // console.log(projects)
+  console.log(projects)
   
   const addTask = (task) => {
     // console.log(task);
     const p = projects.find(p => p.id == task.project_id)
+    console.log(p);
     const newP = {...p, tasks: [...p.tasks, task]}
     // const newTasks = [...p.tasks, task]
     // const newP = {...p, tasks: newTasks}
@@ -79,7 +80,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<AllProjects projects={projects} />} />
         <Route path="/projects/new" element={<NewProject addProject={addProject} />} />
-        <Route path="/projects/:id" element={projects.length > 0 && <OneProject 
+        <Route path="/projects/:id" element={<OneProject 
         projects={projects} 
         addTask={addTask} 
         deleteProject={deleteProject} 
