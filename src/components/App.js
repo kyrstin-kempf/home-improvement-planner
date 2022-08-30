@@ -14,10 +14,10 @@ const App = () => {
   
   const addProject = (project) => {
     // debugger
-    setProjects([...projects, project])
+    setProjects([...projects, {...project, tasks: []}])
   }
 
-  console.log(projects)
+  // console.log(projects)
   
   const addTask = (task) => {
     // console.log(task);
@@ -68,6 +68,7 @@ const App = () => {
     const fetchProjects = async () => {
       const response = await fetch('http://localhost:9292/projects')
       const data = await response.json();
+      // debugger
       setProjects(data);
     }
     

@@ -15,10 +15,7 @@ function TaskList({
     }
 
     const handleCheckbox = (e) => {
-        console.log(e.target.checked)
-        setIsChecked(!isChecked)
-        console.log(!isChecked)
-        handleUpdateTask()
+        setIsChecked(e.target.checked)
       }
 
     const viewTemplate = (
@@ -68,7 +65,25 @@ function TaskList({
           addUpdatedTask(data);
         })
       }
-      
+
+     function handleUpdateTaskStatus() {    
+        fetch(`http://localhost:9292/tasks/${task.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: taskName,
+                task_status: !isChecked,
+            })
+        })
+        .then(r => r.json())
+        .then(data => {
+            console.log(data);
+          addUpdatedTask(data);
+        })
+      }
+
     return (
         <div>
             <li>
@@ -76,7 +91,8 @@ function TaskList({
                 type="checkbox" 
                 id={`checkbox${task.id}`} 
                 checked={isChecked}
-                onChange={handleCheckbox} 
+                onChange={handleCheckbox}
+                onClick={() => handleUpdateTaskStatus()} 
                 />
                 {isEditing ? editingTemplate : viewTemplate}
             </li>

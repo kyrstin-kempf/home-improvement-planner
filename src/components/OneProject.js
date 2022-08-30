@@ -11,13 +11,13 @@ const OneProject = ({ projects, addTask, deleteTask, deleteProject, addUpdatedTa
 
   const editCard = '⋮'
   const handleClick = () => {
-    setIsShown(!isShown)
+    setIsShown(!isShown) 
   };
   
-  console.log(projects)
+  // console.log(projects)
 
   const project = projects.find(project => project.id == id)
-  const tasksList = project.tasks ? project.tasks.map(task => ( 
+  const tasksList = project ? project.tasks.map(task => ( 
         <TaskList
         key={task.id} 
         task={task}
