@@ -1,6 +1,8 @@
 # Home Improvement Planner - Frontend
 This is a frontend application to manage and organize home improvement projects. Users can create new projects with a priority level and add tasks to each project. Projects can be deleted and tasks can be edited, deleted, and updated to show as completed.
 
+![](homeImprovement.gif)
+
 ## Requirements
 To run this application, make sure you have the following installed:
 * node version 16.16.0
