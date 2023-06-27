@@ -1,5 +1,4 @@
-# Phase 3 Project - Frontend
-##  Home Improvement Planner
+# Home Improvement Planner - Frontend
 This is a frontend application to manage and organize home improvement projects. Users can create new projects with a priority level and add tasks to each project. Projects can be deleted and tasks can be edited, deleted, and updated to show as completed.
 
 ## Requirements
