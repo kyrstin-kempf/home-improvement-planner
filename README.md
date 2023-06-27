@@ -14,4 +14,4 @@ The backend of this application will also need to be run on another port for thi
 1. Fork and clone this repository
 2. Run 'yarn install'
 3. Run 'yarn start' - this should open http://localhost:3000
-3. Follow directions to start the backend server [here](https://github.com/kyrstin-kempf/phase-3-sinatra-react-project-backend/blob/main/README.md).
+3. Follow directions to start the backend server [here](https://github.com/kyrstin-kempf/home-improvement-planner-backend).
